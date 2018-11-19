@@ -21,11 +21,11 @@ namespace Infrastructure.Migrations
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime?>("ApprovalDate");
-
                     b.Property<DateTime>("CreatedDate");
 
                     b.Property<long>("InterviewerUserId");
+
+                    b.Property<bool>("IsApporoved");
 
                     b.Property<DateTime?>("LastUpdatedDate");
 
@@ -55,7 +55,7 @@ namespace Infrastructure.Migrations
 
                     b.Property<Guid>("GUID");
 
-                    b.Property<long>("Gender");
+                    b.Property<bool>("Gender");
 
                     b.Property<DateTime?>("LastLoginDateTime");
 

@@ -21,5 +21,9 @@ namespace Web.Models.Interviews
         public string RequesterEmail { get; set; }
 
         public string InterviewerEmail { get; set; }
+
+        public string RequesterName { get; set; }
+
+        public bool IsApporoved { get; set; }
     }
 }

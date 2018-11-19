@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Services.Users;
@@ -14,6 +15,7 @@ namespace Web.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [ValidateModel]
+    [Authorize]
     public class UserController : ControllerBase
     {
         private readonly IUserService _UserService;
@@ -27,6 +29,8 @@ namespace Web.Controllers
 
         [AllowAnonymous]
         [HttpPost]
+        [EnableCors("MyPolicy")]
+
         public IActionResult Register([FromBody] UserModel user)
         {
             byte[] passwordHash, passwordSalt;
@@ -42,6 +46,13 @@ namespace Web.Controllers
             return Ok(entity.ToModel());
         }
 
+        [EnableCors("MyPolicy")]
+
+        public IEnumerable<UserModel> Get()
+        {
+            var List = _UserService.List();
+            return List.Select(u => u.ToModel());
+        }
        
     }
 }

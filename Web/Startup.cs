@@ -110,6 +110,15 @@ namespace Web
             });
 
             #endregion
+
+            // allow cors 
+
+            services.AddCors(o => o.AddPolicy("MyPolicy", buillder =>
+              {
+                  buillder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+                  
+              }));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -139,6 +148,8 @@ namespace Web
             {
                 routes.MapRoute("default", "{controller}/{action=Index}/{id?}");
             });
+
+            app.UseCors("MyPolicy");
         }
     }
 }

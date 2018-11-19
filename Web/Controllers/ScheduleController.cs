@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Services.Interviews;
@@ -26,6 +27,7 @@ namespace Web.Controllers
         }
         
         [HttpGet("RequestList")]
+        [EnableCors("MyPolicy")]
         public IEnumerable<ScheduleModel> RequestList()
         {
             var List = _scheduleService.RequestList(_userprincipal.UserId());
@@ -33,6 +35,7 @@ namespace Web.Controllers
         }
 
         [HttpGet("SentList")]
+        [EnableCors("MyPolicy")]
         public IEnumerable<ScheduleModel> SentList()
         {
             var List = _scheduleService.SentList(_userprincipal.UserId());
@@ -41,6 +44,7 @@ namespace Web.Controllers
 
         // GET: api/Schedule/5
         [HttpGet("{id}", Name = "Get")]
+        [EnableCors("MyPolicy")]
         public ScheduleModel Get(int id)
         {
             var entity = _scheduleService.GetById(id);
@@ -49,6 +53,7 @@ namespace Web.Controllers
 
         // POST: api/Schedule
         [HttpPost]
+        [EnableCors("MyPolicy")]
         public void Post([FromBody] ScheduleModel model)
         {
             model.RequesterUserId = _userprincipal.UserId();
@@ -61,6 +66,7 @@ namespace Web.Controllers
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
+        [EnableCors("MyPolicy")]
         public void Delete(int id)
         {
             var entity = _scheduleService.GetById(id);           

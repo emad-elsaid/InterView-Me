@@ -144,6 +144,7 @@ namespace Web.Infrastructure
             var model = mapper.Map<Schedule, ScheduleModel>(entity);
             model.RequesterEmail = entity.Requester.Email;
             model.InterviewerEmail = entity.Interviewer.Email;
+            model.RequesterName = entity.Requester.Name;
             return model;
         }
 

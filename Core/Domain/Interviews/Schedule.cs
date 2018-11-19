@@ -17,7 +17,7 @@ namespace Core.Domain.Interviews
         /// </summary>
         public long InterviewerUserId { get; set; }
 
-        public DateTime ?   ApprovalDate { get; set; }
+        public bool   IsApporoved { get; set; }
 
         public virtual User Requester { get; set; }
 

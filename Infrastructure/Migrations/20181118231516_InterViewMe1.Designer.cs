@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20181118045440_InterviewMe2")]
-    partial class InterviewMe2
+    [Migration("20181118231516_InterViewMe1")]
+    partial class InterViewMe1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,11 +23,11 @@ namespace Infrastructure.Migrations
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime?>("ApprovalDate");
-
                     b.Property<DateTime>("CreatedDate");
 
                     b.Property<long>("InterviewerUserId");
+
+                    b.Property<bool>("IsApporoved");
 
                     b.Property<DateTime?>("LastUpdatedDate");
 
@@ -57,7 +57,7 @@ namespace Infrastructure.Migrations
 
                     b.Property<Guid>("GUID");
 
-                    b.Property<long>("Gender");
+                    b.Property<bool>("Gender");
 
                     b.Property<DateTime?>("LastLoginDateTime");
 
