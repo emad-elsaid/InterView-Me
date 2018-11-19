@@ -46,6 +46,8 @@ namespace Web.Controllers
             return Ok(entity.ToModel());
         }
 
+        [HttpGet]
+
         [EnableCors("MyPolicy")]
 
         public IEnumerable<UserModel> Get()

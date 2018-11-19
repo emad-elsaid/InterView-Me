@@ -1,9 +1,4 @@
-<div class="row">
-  <div class="col-md-12">
-    <p-breadcrumb [model]="items"></p-breadcrumb>
-  </div>
-</div>
-<hr />
+
 <div class="row">
   <div class="col-md-12">
     <p-table [columns]="cols" [value]="schedules" [paginator]="true" [rows]="10">
@@ -21,7 +16,7 @@
             {{schedule[col.field]}}
           </td>
           <td>
-            <button type="button" (click)="Accept(user)" class="btn btn-primary btn-success">Accept</button>
+            <button type="button" (click)="Accept(schedule)" class="btn btn-primary btn-success">Accept</button>
           </td>
         </tr>
       </ng-template>
