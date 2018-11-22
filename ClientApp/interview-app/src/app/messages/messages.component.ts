@@ -15,6 +15,6 @@ export class MessagesComponent implements OnInit {
   }
 
   Clear(){
-    this.Clear();
+    this.notification.clear();
   }
 }

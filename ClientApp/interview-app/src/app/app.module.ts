@@ -19,6 +19,7 @@ import { IntivatationListComponent } from './intivatation-list/intivatation-list
 import { InviteUserComponent } from './invite-user/invite-user.component';
 import { SentListComponent } from './sent-list/sent-list.component';
 import { MessagesComponent } from './messages/messages.component';
+import { LoaderComponent } from './loader/loader.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +31,8 @@ import { MessagesComponent } from './messages/messages.component';
     IntivatationListComponent,
     InviteUserComponent,
     SentListComponent,
-    MessagesComponent
+    MessagesComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +47,8 @@ import { MessagesComponent } from './messages/messages.component';
     TableModule,
     NavMenuComponent,
     FooterComponent,
-    MessagesComponent
+    MessagesComponent,
+    LoaderComponent
     
     
     

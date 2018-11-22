@@ -4,6 +4,7 @@ import { first } from 'rxjs/operators';
 import { AuthenticationService } from '../authentication-service.service';
 import{NotificationService} from '../notification.service'
 import {ErrorParserService} from '../error-parser.service';
+import { LoadingServiceService } from '../loading-service.service';
 @Component({ templateUrl: 'login.component.html', providers: [] })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
@@ -13,7 +14,8 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private authenticationService: AuthenticationService,
     private notificationService : NotificationService,
-    private errorParserService : ErrorParserService
+    private errorParserService : ErrorParserService,
+    private Loader : LoadingServiceService
    ) { }
 
   ngOnInit() {
@@ -33,11 +35,14 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.invalid) {
       return;
     }
+
+    this.Loader.Start();
    
     this.authenticationService.login(this.f.username.value, this.f.password.value, this.f.rememberme.value)
       .pipe(first())
       .subscribe(
       () => {
+        this.Loader.Stop();
         },
       error => {
         switch(error.status){
@@ -51,7 +56,7 @@ export class LoginComponent implements OnInit {
           this.notificationService.Add(this.errorParserService.Parse(error.error),'danger');
           break;
         }
-          
+        this.Loader.Stop();
         });
   }
 }

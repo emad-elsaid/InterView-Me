@@ -3,14 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { User } from './User';
 import { Config } from './Config';
 import { HttpHeaders } from '@angular/common/http';
-import { UseExistingWebDriver } from 'protractor/built/driverProviders';
 
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Authorization': 'bearer ' + (JSON.parse(localStorage.getItem("currentUser")) != null ?
-      JSON.parse(localStorage.getItem("currentUser")).token : "")
-  })
-}
 @Injectable({
   providedIn: 'root'
 })
@@ -24,7 +17,11 @@ export class UserService {
   }
 
   getAll() {
-    return this.http.get<User[]>(this.config.BaseUrl + "user", httpOptions);
+    return this.http.get<User[]>(this.config.BaseUrl + "user",  {
+      headers: new HttpHeaders({
+        'Authorization': 'bearer ' + JSON.parse(localStorage.getItem("currentUser")).token
+      })
+    });
   }
 
 }
