@@ -18,6 +18,7 @@ import { FooterComponent } from './footer/footer.component';
 import { IntivatationListComponent } from './intivatation-list/intivatation-list.component';
 import { InviteUserComponent } from './invite-user/invite-user.component';
 import { SentListComponent } from './sent-list/sent-list.component';
+import { MessagesComponent } from './messages/messages.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +29,8 @@ import { SentListComponent } from './sent-list/sent-list.component';
     FooterComponent,
     IntivatationListComponent,
     InviteUserComponent,
-    SentListComponent
+    SentListComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +44,8 @@ import { SentListComponent } from './sent-list/sent-list.component';
     BrowserAnimationsModule,
     TableModule,
     NavMenuComponent,
-    FooterComponent
+    FooterComponent,
+    MessagesComponent
     
     
     

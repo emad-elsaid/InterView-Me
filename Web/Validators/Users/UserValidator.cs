@@ -17,7 +17,6 @@ namespace Web.Validators.Users
             RuleFor(u => u.Name).NotEmpty().WithMessage("Name is required");
             RuleFor(u => u.Email).NotEmpty().WithMessage(" Email is required");
             RuleFor(u => u.Password).NotEmpty().WithMessage(" Password is required");
-            RuleFor(u => u.Gender).NotEmpty().WithMessage("Gender is required");
             RuleFor(u => u.PhoneNumber).NotEmpty().WithMessage("PhoneNumber is required");
             // Custom check if email already Exist or not 
             RuleFor(u => u.Email).Custom((p,c) => {

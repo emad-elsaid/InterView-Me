@@ -4,7 +4,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { User } from '../User';
 import { UserService } from '../user.service';
-
+import{NotificationService} from '../notification.service'
+import {ErrorParserService} from '../error-parser.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -18,7 +19,9 @@ export class RegisterComponent implements OnInit {
 
   constructor(private userservice: UserService,
       private formBuilder: FormBuilder,
-      private   router: Router
+      private   router: Router,
+      private notificationService : NotificationService,
+      private errorParserService : ErrorParserService
     
 
   ) { }
@@ -28,7 +31,7 @@ export class RegisterComponent implements OnInit {
       Name: ['', Validators.required],
       Email: ['', Validators.required],
       Password: ['', [Validators.required, Validators.minLength(6)]],
-      Gender: [true, Validators.required],
+      Gender: [1, Validators.required],
       PhoneNumber: ['', Validators.required]
     });
   }
@@ -36,6 +39,7 @@ export class RegisterComponent implements OnInit {
   get f() { return this.registerForm.controls; }
 
   onSubmit() {
+    this.submitted = true;
     if (this.registerForm.invalid) {
       return;
     }
@@ -44,13 +48,21 @@ export class RegisterComponent implements OnInit {
       .pipe(first())
       .subscribe(
       data => {
-        
-     
         this.router.navigate(['/Login']);
 
         },
       error => {
-      
+        switch(error.status){
+          case 0 :
+          this.notificationService.Add('web api loading error','danger');
+          break;
+          case 400 : 
+          this.notificationService.Add(this.errorParserService.Parse(error.error),'warning');
+          break;
+          case 500 :
+          this.notificationService.Add(this.errorParserService.Parse(error.error),'danger');
+          break;
+        }
         
         });
   }

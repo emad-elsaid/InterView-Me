@@ -3,6 +3,6 @@ export class User {
   PhoneNumber: string;
   Password: string;
   Name: string;
-  Gender: boolean;
+  Gender: number;
 
 }

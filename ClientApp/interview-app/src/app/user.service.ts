@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { User } from './User';
 import { Config } from './Config';
 import { HttpHeaders } from '@angular/common/http';
+import { UseExistingWebDriver } from 'protractor/built/driverProviders';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -19,7 +20,6 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   CreateUser(user: User) {
-    
     return this.http.post(this.config.BaseUrl + "user", user);
   }
 

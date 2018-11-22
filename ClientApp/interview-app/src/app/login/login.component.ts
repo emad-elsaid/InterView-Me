@@ -1,8 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { AuthenticationService } from '../authentication-service.service';
+import{NotificationService} from '../notification.service'
+import {ErrorParserService} from '../error-parser.service';
 @Component({ templateUrl: 'login.component.html', providers: [] })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
@@ -10,9 +11,9 @@ export class LoginComponent implements OnInit {
   returnUrl: string;
   constructor(
     private formBuilder: FormBuilder,
-    private route: ActivatedRoute,
-    private router: Router,
     private authenticationService: AuthenticationService,
+    private notificationService : NotificationService,
+    private errorParserService : ErrorParserService
    ) { }
 
   ngOnInit() {
@@ -36,10 +37,21 @@ export class LoginComponent implements OnInit {
     this.authenticationService.login(this.f.username.value, this.f.password.value, this.f.rememberme.value)
       .pipe(first())
       .subscribe(
-      data => {
+      () => {
         },
       error => {
-          alert(JSON.stringify(error.error))
+        switch(error.status){
+          case 0 :
+          this.notificationService.Add('web api loading error','danger');
+          break;
+          case 400 : 
+          this.notificationService.Add(this.errorParserService.Parse(error.error),'warning');
+          break;
+          case 500 :
+          this.notificationService.Add(this.errorParserService.Parse(error.error),'danger');
+          break;
+        }
+          
         });
   }
 }

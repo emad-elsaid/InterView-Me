@@ -25,8 +25,8 @@ namespace Core.Domain.Users
         
         public DateTime? LastLoginDateTime { get; set; }
 
-        public bool Gender { get; set; }
+        public short Gender { get; set; }
 
-      
+
     }
 }

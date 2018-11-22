@@ -24,3 +24,4 @@ D:\InterView_Me_App\Core\obj\Debug\netstandard2.0\Core.AssemblyInfoInputs.cache
 D:\InterView_Me_App\Core\obj\Debug\netstandard2.0\Core.AssemblyInfo.cs
 D:\InterView_Me_App\Core\obj\Debug\netstandard2.0\Core.dll
 D:\InterView_Me_App\Core\obj\Debug\netstandard2.0\Core.pdb
+D:\InterView_Me_App\Core\obj\Debug\netstandard2.0\Core.csprojAssemblyReference.cache

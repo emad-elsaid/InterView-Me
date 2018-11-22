@@ -15,7 +15,7 @@ namespace Web.Models.Users
 
         public string Name { get; set; }
         
-        public bool Gender { get; set; }
+        public short Gender { get; set; }
 
        
       
