@@ -82,7 +82,7 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Core.Domain.Interviews.Schedule", b =>
                 {
-                    b.HasOne("Core.Domain.Users.User", "Invinted")
+                    b.HasOne("Core.Domain.Users.User", "Invited")
                         .WithMany()
                         .HasForeignKey("InvitedId")
                         .OnDelete(DeleteBehavior.Cascade);

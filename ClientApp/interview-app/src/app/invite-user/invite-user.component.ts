@@ -34,7 +34,7 @@ export class InviteUserComponent implements OnInit {
  
   Invite(id:number){
     this.Loader.Start();
-    this.schedule.InvitedId = id;
+    this.schedule.invitedId = id;
    this.scheduleService.Create(this.schedule)
    .pipe(first())
    .subscribe(
