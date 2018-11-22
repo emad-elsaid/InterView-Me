@@ -39,7 +39,7 @@ namespace Services.Interviews
         {
             return _repository.Table
                 .Include(c=> c.Sender)
-                .Include(c => c.Invinted)
+                .Include(c => c.Invited)
                 .Where(c => c.InvitedId == UserId)
                  .AsEnumerable();
         }
@@ -48,7 +48,7 @@ namespace Services.Interviews
         {
             return _repository.Table
                 .Include(c => c.Sender)
-                 .Include(c => c.Invinted)
+                 .Include(c => c.Invited)
                 .Where(c => c.SenderId == UserId)
                 .AsEnumerable();
         }

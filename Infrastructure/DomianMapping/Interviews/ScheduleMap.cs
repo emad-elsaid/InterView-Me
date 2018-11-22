@@ -17,7 +17,7 @@ namespace Infrastructure.DomianMapping.Interviews
             builder.HasOne(c => c.Sender).WithMany()
                .HasForeignKey(c => c.SenderId);
 
-            builder.HasOne(c => c.Invinted).WithMany()
+            builder.HasOne(c => c.Invited).WithMany()
               .HasForeignKey(c => c.InvitedId);
             base.Configure(builder);
         }

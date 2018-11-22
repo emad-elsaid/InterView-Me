@@ -24,6 +24,6 @@ namespace Web.Models.Interviews
 
         public virtual UserModel Sender { get; set; }
 
-        public virtual UserModel Invinted { get; set; }
+        public virtual UserModel Invited { get; set; }
     }
 }

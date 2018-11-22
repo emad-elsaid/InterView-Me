@@ -142,7 +142,7 @@ namespace Web.Infrastructure
             });
             var mapper = config.CreateMapper();
             var model = mapper.Map<Schedule, ScheduleModel>(entity);
-            model.Invinted = entity.Invinted.ToModel();
+            model.Invited = entity.Invited.ToModel();
             model.Sender = entity.Sender.ToModel();
          
             return model;

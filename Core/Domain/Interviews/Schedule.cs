@@ -23,7 +23,7 @@ namespace Core.Domain.Interviews
 
         public virtual User Sender { get; set; }
 
-        public virtual User Invinted { get; set; }
+        public virtual User Invited { get; set; }
 
     }
 }
