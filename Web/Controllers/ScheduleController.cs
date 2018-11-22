@@ -56,13 +56,25 @@ namespace Web.Controllers
         [EnableCors("MyPolicy")]
         public void Post([FromBody] ScheduleModel model)
         {
-            model.RequesterUserId = _userprincipal.UserId();
+            model.SenderId = _userprincipal.UserId();
             var entity = model.ToEntity();
             entity.CreatedDate = DateTime.Now;            
             _scheduleService.Create(entity);
         }
 
-      
+        // POST: api/Schedule
+        [HttpPut]
+        [EnableCors("MyPolicy")]
+        public void Put([FromBody] ScheduleModel model)
+        {
+
+            var entity = _scheduleService.GetById(model.id);
+            entity.IsApporoved = model.IsApporoved;
+            entity.LastUpdatedDate = DateTime.Now;
+            _scheduleService.Update(entity);
+        }
+
+
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]

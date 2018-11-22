@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Infrastructure.Migrations
 {
-    public partial class InterViewMe1 : Migration
+    public partial class InterView1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -39,36 +39,37 @@ namespace Infrastructure.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     CreatedDate = table.Column<DateTime>(nullable: false),
                     LastUpdatedDate = table.Column<DateTime>(nullable: true),
-                    RequesterUserId = table.Column<long>(nullable: false),
-                    InterviewerUserId = table.Column<long>(nullable: false),
+                    SenderId = table.Column<long>(nullable: false),
+                    InvitedId = table.Column<long>(nullable: false),
+                    Description = table.Column<string>(nullable: true),
                     IsApporoved = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Schedule", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Schedule_Users_InterviewerUserId",
-                        column: x => x.InterviewerUserId,
+                        name: "FK_Schedule_Users_InvitedId",
+                        column: x => x.InvitedId,
                         principalTable: "Users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Schedule_Users_RequesterUserId",
-                        column: x => x.RequesterUserId,
+                        name: "FK_Schedule_Users_SenderId",
+                        column: x => x.SenderId,
                         principalTable: "Users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Schedule_InterviewerUserId",
+                name: "IX_Schedule_InvitedId",
                 table: "Schedule",
-                column: "InterviewerUserId");
+                column: "InvitedId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Schedule_RequesterUserId",
+                name: "IX_Schedule_SenderId",
                 table: "Schedule",
-                column: "RequesterUserId");
+                column: "SenderId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Users_Email",

@@ -10,18 +10,20 @@ namespace Core.Domain.Interviews
         /// <summary>
         /// User who made interview request
         /// </summary>
-        public long RequesterUserId { get; set; }
+        public long SenderId { get; set; }
 
         /// <summary>
         /// selected interviewer
         /// </summary>
-        public long InterviewerUserId { get; set; }
+        public long InvitedId { get; set; }
+
+        public string Description { get; set; }
 
         public bool   IsApporoved { get; set; }
 
-        public virtual User Requester { get; set; }
+        public virtual User Sender { get; set; }
 
-        public virtual User Interviewer { get; set; }
+        public virtual User Invinted { get; set; }
 
     }
 }

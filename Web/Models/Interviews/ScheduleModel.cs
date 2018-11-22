@@ -11,19 +11,19 @@ namespace Web.Models.Interviews
         /// <summary>
         /// User who made interview request
         /// </summary>
-        public long RequesterUserId { get; set; }
+        public long SenderId { get; set; }
 
         /// <summary>
         /// selected interviewer
         /// </summary>
-        public long InterviewerUserId { get; set; }
+        public long InvitedId { get; set; }
 
-        public string RequesterEmail { get; set; }
-
-        public string InterviewerEmail { get; set; }
-
-        public string RequesterName { get; set; }
+        public string Description { get; set; }
 
         public bool IsApporoved { get; set; }
+
+        public virtual UserModel Sender { get; set; }
+
+        public virtual UserModel Invinted { get; set; }
     }
 }

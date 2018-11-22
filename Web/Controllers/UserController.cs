@@ -20,11 +20,12 @@ namespace Web.Controllers
     {
         private readonly IUserService _UserService;
         private readonly IEncryptionService _encryptionService;
-
-        public UserController(IUserService UserService , IEncryptionService encryptionService)
+        private readonly IUserprincipal _userprincipal;
+        public UserController(IUserService UserService , IEncryptionService encryptionService, IUserprincipal userprincipal)
         {
             _UserService = UserService;
             _encryptionService = encryptionService;
+            _userprincipal = userprincipal;
         }
 
         [AllowAnonymous]
@@ -52,7 +53,7 @@ namespace Web.Controllers
 
         public IEnumerable<UserModel> Get()
         {
-            var List = _UserService.List();
+            var List = _UserService.List().Where(c => c.Id != _userprincipal.UserId());
             return List.Select(u => u.ToModel());
         }
        

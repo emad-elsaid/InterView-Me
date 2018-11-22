@@ -1,7 +1,11 @@
+import { User } from "./User";
+
 export class Schedule {
-  RequesterUserId: number;
-  InterviewerUserId: number;
-  RequesterEmail: string;
-  InterviewerEmail: string;
-  RequesterName: string;
+  id : number;
+  SenderId: number;
+  InvitedId: number;
+  Description :string;
+  IsApporoved : boolean;
+  sender : User;
+  invinted : User;
 }

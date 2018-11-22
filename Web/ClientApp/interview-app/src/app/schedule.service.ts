@@ -19,7 +19,19 @@ export class ScheduleService {
   constructor(private http: HttpClient) { }
 
   getAll() {
+    
     return this.http.get<Schedule[]>(this.config.BaseUrl + "Schedule/RequestList", httpOptions);
   }
 
+   Create(schedule : Schedule){
+     return this.http.post(this.config.BaseUrl + 'Schedule',schedule,httpOptions);
+   }
+
+   Update(schedule : Schedule){
+    return this.http.put(this.config.BaseUrl + 'Schedule',schedule,httpOptions);
+  }
+
+  Delete(id:number){
+    return this.http.delete(this.config.BaseUrl + 'Schedule/' + id,httpOptions);
+  }
 }

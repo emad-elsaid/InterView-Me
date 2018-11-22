@@ -38,18 +38,18 @@ namespace Services.Interviews
         public IEnumerable<Schedule> RequestList(long UserId)
         {
             return _repository.Table
-                .Include(c=> c.Requester)
-                .Include(c => c.Interviewer)
-                .Where(c => c.InterviewerUserId == UserId)
+                .Include(c=> c.Sender)
+                .Include(c => c.Invinted)
+                .Where(c => c.InvitedId == UserId)
                  .AsEnumerable();
         }
 
         public IEnumerable<Schedule> SentList(long UserId)
         {
             return _repository.Table
-                .Include(c => c.Requester)
-                 .Include(c => c.Interviewer)
-                .Where(c => c.RequesterUserId == UserId)
+                .Include(c => c.Sender)
+                 .Include(c => c.Invinted)
+                .Where(c => c.SenderId == UserId)
                 .AsEnumerable();
         }
 

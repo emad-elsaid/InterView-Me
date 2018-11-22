@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-md-12">
+   <table class="table table-bordered">
+     <tbody>
+     <tr *ngFor="let item of schedules">
+       <td>
+         {{item.sender.name}}
+       </td>
+       <td>
+          <button type="button"   (click)="Delete(item.id)" class="btn btn-primary btn-danger">
+            Delete
+          </button>
+         
+        </td>
+     </tr>
+      <tr *ngIf="schedules?.length == 0" class="notitems">
+        <td colspan="2">
+          No Invitations
+        </td>
+      </tr>
+     </tbody>
+   </table>
+  </div>
+
+  </div>

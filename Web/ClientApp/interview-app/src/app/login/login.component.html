@@ -1,14 +1,11 @@
 
 
-<h2>Login to InterView Me</h2>
-<p-messages [(value)]="msgs"></p-messages>
-<p-blockUI [blocked]="Blocked"></p-blockUI>
 
 <div class="row">
   <div class="col-sm-6 offset-sm-3">
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
-        <label for="username">Username</label>
+        <label for="username">Email Address</label>
         <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
         <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
           <div *ngIf="f.username.errors.required">Username is required</div>
@@ -30,5 +27,6 @@
 
   </div>
 </div>
+
 
 

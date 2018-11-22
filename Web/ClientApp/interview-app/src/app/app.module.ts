@@ -8,20 +8,27 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { AccordionModule } from 'primeng/accordion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MessagesModule } from 'primeng/messages';
-import { BlockUIModule } from 'primeng/blockui';
 import { routing } from './app.routing';
 import { LoginComponent } from './login/login.component';
-import { ScheduleComponent } from './schedule/schedule.component';
 import { AuthGuardGuard } from './auth-guard.guard';
 import { TableModule } from 'primeng/table';
-import { BreadcrumbModule } from 'primeng/breadcrumb';
+import { NavMenuComponent } from './nav-menu/nav-menu.component';
+import { MainComponent } from './main/main.component';
+import { FooterComponent } from './footer/footer.component';
+import { IntivatationListComponent } from './intivatation-list/intivatation-list.component';
+import { InviteUserComponent } from './invite-user/invite-user.component';
+import { SentListComponent } from './sent-list/sent-list.component';
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     LoginComponent,
-    ScheduleComponent
+    NavMenuComponent,
+    MainComponent,
+    FooterComponent,
+    IntivatationListComponent,
+    InviteUserComponent,
+    SentListComponent
   ],
   imports: [
     BrowserModule,
@@ -33,10 +40,9 @@ import { BreadcrumbModule } from 'primeng/breadcrumb';
     routing,
     AccordionModule,
     BrowserAnimationsModule,
-    MessagesModule,
-    BlockUIModule,
     TableModule,
-    BreadcrumbModule
+    NavMenuComponent,
+    FooterComponent
     
     
     

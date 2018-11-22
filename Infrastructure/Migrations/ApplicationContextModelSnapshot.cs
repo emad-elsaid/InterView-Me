@@ -23,19 +23,21 @@ namespace Infrastructure.Migrations
 
                     b.Property<DateTime>("CreatedDate");
 
-                    b.Property<long>("InterviewerUserId");
+                    b.Property<string>("Description");
+
+                    b.Property<long>("InvitedId");
 
                     b.Property<bool>("IsApporoved");
 
                     b.Property<DateTime?>("LastUpdatedDate");
 
-                    b.Property<long>("RequesterUserId");
+                    b.Property<long>("SenderId");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("InterviewerUserId");
+                    b.HasIndex("InvitedId");
 
-                    b.HasIndex("RequesterUserId");
+                    b.HasIndex("SenderId");
 
                     b.ToTable("Schedule");
                 });
@@ -80,14 +82,14 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Core.Domain.Interviews.Schedule", b =>
                 {
-                    b.HasOne("Core.Domain.Users.User", "Interviewer")
+                    b.HasOne("Core.Domain.Users.User", "Invinted")
                         .WithMany()
-                        .HasForeignKey("InterviewerUserId")
+                        .HasForeignKey("InvitedId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("Core.Domain.Users.User", "Requester")
+                    b.HasOne("Core.Domain.Users.User", "Sender")
                         .WithMany()
-                        .HasForeignKey("RequesterUserId")
+                        .HasForeignKey("SenderId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

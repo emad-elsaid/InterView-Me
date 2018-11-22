@@ -142,9 +142,9 @@ namespace Web.Infrastructure
             });
             var mapper = config.CreateMapper();
             var model = mapper.Map<Schedule, ScheduleModel>(entity);
-            model.RequesterEmail = entity.Requester.Email;
-            model.InterviewerEmail = entity.Interviewer.Email;
-            model.RequesterName = entity.Requester.Name;
+            model.Invinted = entity.Invinted.ToModel();
+            model.Sender = entity.Sender.ToModel();
+         
             return model;
         }
 

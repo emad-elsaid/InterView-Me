@@ -14,11 +14,11 @@ namespace Infrastructure.DomianMapping.Interviews
         {
             builder.ToTable("Schedule");
             builder.HasKey(c => c.Id);
-            builder.HasOne(c => c.Requester).WithMany()
-               .HasForeignKey(c => c.RequesterUserId);
+            builder.HasOne(c => c.Sender).WithMany()
+               .HasForeignKey(c => c.SenderId);
 
-            builder.HasOne(c => c.Interviewer).WithMany()
-              .HasForeignKey(c => c.InterviewerUserId);
+            builder.HasOne(c => c.Invinted).WithMany()
+              .HasForeignKey(c => c.InvitedId);
             base.Configure(builder);
         }
     }

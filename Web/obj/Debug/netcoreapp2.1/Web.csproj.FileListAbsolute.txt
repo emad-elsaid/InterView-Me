@@ -40,3 +40,24 @@ D:\Mohammed Ragab\InterViewMe\Web\obj\Debug\netcoreapp2.1\Web.RazorTargetAssembl
 D:\Mohammed Ragab\InterViewMe\Web\obj\Debug\netcoreapp2.1\Web.csproj.CopyComplete
 D:\Mohammed Ragab\InterViewMe\Web\obj\Debug\netcoreapp2.1\Web.dll
 D:\Mohammed Ragab\InterViewMe\Web\obj\Debug\netcoreapp2.1\Web.pdb
+D:\InterView_Me_App\Web\obj\Debug\netcoreapp2.1\Web.csprojAssemblyReference.cache
+D:\InterView_Me_App\Web\obj\Debug\netcoreapp2.1\Web.csproj.CoreCompileInputs.cache
+D:\InterView_Me_App\Web\obj\Debug\netcoreapp2.1\Web.RazorAssemblyInfo.cache
+D:\InterView_Me_App\Web\obj\Debug\netcoreapp2.1\Web.RazorAssemblyInfo.cs
+D:\InterView_Me_App\Web\obj\Debug\netcoreapp2.1\Web.AssemblyInfoInputs.cache
+D:\InterView_Me_App\Web\obj\Debug\netcoreapp2.1\Web.AssemblyInfo.cs
+D:\InterView_Me_App\Web\obj\Debug\netcoreapp2.1\Web.dll
+D:\InterView_Me_App\Web\obj\Debug\netcoreapp2.1\Web.pdb
+D:\InterView_Me_App\Web\bin\Debug\netcoreapp2.1\Web.deps.json
+D:\InterView_Me_App\Web\bin\Debug\netcoreapp2.1\Web.runtimeconfig.json
+D:\InterView_Me_App\Web\bin\Debug\netcoreapp2.1\Web.runtimeconfig.dev.json
+D:\InterView_Me_App\Web\bin\Debug\netcoreapp2.1\Web.dll
+D:\InterView_Me_App\Web\bin\Debug\netcoreapp2.1\Web.pdb
+D:\InterView_Me_App\Web\bin\Debug\netcoreapp2.1\Core.dll
+D:\InterView_Me_App\Web\bin\Debug\netcoreapp2.1\Infrastructure.dll
+D:\InterView_Me_App\Web\bin\Debug\netcoreapp2.1\Services.dll
+D:\InterView_Me_App\Web\bin\Debug\netcoreapp2.1\Core.pdb
+D:\InterView_Me_App\Web\bin\Debug\netcoreapp2.1\Infrastructure.pdb
+D:\InterView_Me_App\Web\bin\Debug\netcoreapp2.1\Services.pdb
+D:\InterView_Me_App\Web\obj\Debug\netcoreapp2.1\Web.RazorTargetAssemblyInfo.cache
+D:\InterView_Me_App\Web\obj\Debug\netcoreapp2.1\Web.csproj.CopyComplete
