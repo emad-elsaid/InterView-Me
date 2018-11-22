@@ -6,6 +6,7 @@ import { User } from '../User';
 import { UserService } from '../user.service';
 import{NotificationService} from '../notification.service'
 import {ErrorParserService} from '../error-parser.service';
+import { LoadingServiceService } from '../loading-service.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -21,7 +22,8 @@ export class RegisterComponent implements OnInit {
       private formBuilder: FormBuilder,
       private   router: Router,
       private notificationService : NotificationService,
-      private errorParserService : ErrorParserService
+      private errorParserService : ErrorParserService,
+      private Loader : LoadingServiceService
     
 
   ) { }
@@ -43,7 +45,7 @@ export class RegisterComponent implements OnInit {
     if (this.registerForm.invalid) {
       return;
     }
-
+    this.Loader.Start();
     this.userservice.CreateUser(this.registerForm.value)
       .pipe(first())
       .subscribe(
@@ -63,7 +65,7 @@ export class RegisterComponent implements OnInit {
           this.notificationService.Add(this.errorParserService.Parse(error.error),'danger');
           break;
         }
-        
+        this.Loader.Stop();
         });
   }
 }
