@@ -17,7 +17,7 @@ export class RegisterComponent implements OnInit {
   user: User;
   registerForm: FormGroup;
   submitted = false;
-
+  loading  = false;
   constructor(private userservice: UserService,
       private formBuilder: FormBuilder,
       private   router: Router,
@@ -42,6 +42,7 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
+  
     if (this.registerForm.invalid) {
       return;
     }
@@ -51,6 +52,7 @@ export class RegisterComponent implements OnInit {
       .subscribe(
       data => {
         this.Loader.Stop();
+      
         this.router.navigate(['/Login']);
 
         },
